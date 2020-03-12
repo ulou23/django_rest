@@ -1,0 +1,16 @@
+>>> from rest_framework.renderers import JSONRenderer
+>>> from rest_framework.parsers import JSONParser
+>>> urlinput=Urlinput(url_input="http://url.com")
+>>> urlinput.save()
+>>> urlinput=Urlinput(url_input="https://www.koty.com")
+>>> urlinput.save()
+>>> serializer=UrlinputSerializer(urlinput)
+>>> serializer.data
+{'id': 2, 'url_input': 'https://www.koty.com'}
+>>> content=JSONRenderer().render(serializer.data)
+>>> content
+b'{"id":2,"url_input":"https://www.koty.com"}'
+>>> serializer=UrlinputSerializer(Urlinput.objects.all(), many=True)
+>>> serializer.data
+[OrderedDict([('id', 1), ('url_input', 'http://url.com')]), OrderedDict([('id', 2), ('url_input', 'https://www.koty.com')])]
+>>>

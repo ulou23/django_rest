@@ -1,0 +1,18 @@
+{% load rest_framework %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1> URL {{ urlinput.url_input }}</h1>
+
+{% for u in list %}
+<li>{{ u.url_input }}</li>
+{% endfor %}
+
+</body>
+</html>
